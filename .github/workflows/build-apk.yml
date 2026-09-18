@@ -26,6 +26,12 @@ jobs:
         with:
           channel: 'stable'
 
+      - name: Ensure Android project exists
+        run: |
+          if [ ! -d android ]; then
+            flutter create . --platforms=android
+          fi
+
       - name: Get dependencies
         run: flutter pub get
 
